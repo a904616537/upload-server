@@ -29,7 +29,7 @@ const config = {
 		port         : 8082,
 		app          : {
 			name : 'company',
-			host : 'http://admin.skyfortune.sh.cn/images/'
+			host : 'http://localhost:8082/images/'
 		},
 	}
 }
