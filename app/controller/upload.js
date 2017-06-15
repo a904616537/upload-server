@@ -13,6 +13,9 @@ cacheFolder = config.root + '/public/images/';
 
 
 router.route('/upload')
+.get((req, res) => {
+    res.send('upload is ok!')
+})
 .post((req, res) => {
     var userDirPath = cacheFolder;
     if (!fs.existsSync(userDirPath)) {
