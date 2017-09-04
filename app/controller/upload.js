@@ -35,8 +35,10 @@ router.route('/upload')
             res.send(err);
             return;
         }
+        console.log('files', files['file[0]']);
+        let file = files.file? files.file : files['file[0]'];
         var extName = ''; //后缀名
-        switch (files.file.type) {
+        switch (file.type) {
             case 'image/pjpeg':
                 extName = 'jpg';
                 break;
@@ -48,6 +50,9 @@ router.route('/upload')
                 break;
             case 'image/x-png':
                 extName = 'png';
+                break;
+            case 'video/mp4':
+                extName = 'mp4';
                 break;
         }
         if (extName.length === 0) {
@@ -61,7 +66,7 @@ router.route('/upload')
 			var newPath    = form.uploadDir + avatarName;
 			displayUrl     = config.app.host + avatarName;
 			
-            fs.renameSync(files.file.path, newPath); //重命名
+            fs.renameSync(file.path, newPath); //重命名
             res.send({
 				code : 200,
 				msg  : displayUrl
