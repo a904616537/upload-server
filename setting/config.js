@@ -29,7 +29,7 @@ const config = {
 		port         : 8082,
 		app          : {
 			name : 'company',
-			host : 'http://image.eatisco.com/images/'
+			host : 'http://image.mybarrefitness.com/images/'
 		},
 	}
 }
