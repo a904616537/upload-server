@@ -21,7 +21,7 @@ router.route('/upload')
     if (!fs.existsSync(userDirPath)) {
         fs.mkdirSync(userDirPath);
     }
-    // console.log('req' , req)
+    
 	var form            = new formidable.IncomingForm(); //创建上传表单
 	form.encoding       = 'utf-8'; 			//设置编辑
 	form.uploadDir      = userDirPath;		//设置上传目录
@@ -73,7 +73,14 @@ router.route('/upload')
             });
         }
     })
-    // res.send('asdsada')
+})
+
+router.route('/download')
+.get((req, res) => {
+    const {path, name} = req.query;
+
+    const filepath = cacheFolder + path;
+    res.download(filepath, name);
 })
 
 module.exports = app => {

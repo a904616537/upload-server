@@ -6,6 +6,7 @@ logger         = require('morgan'),
 bodyParser     = require('body-parser'),
 compress       = require('compression'),
 methodOverride = require('method-override'),
+ejs            = require('ejs'),
 zlib           = require('zlib');
 
 
@@ -23,6 +24,10 @@ module.exports = (app, config) => {
             next();
         }
     });
+
+    app.engine('html', ejs.__express);
+    app.set('views', config.root + '/app/view');
+    app.set('view engine', 'html');
 
     app.use(express.static(config.root + '/public/'));
     app.use(logger('dev'));
@@ -45,19 +50,19 @@ module.exports = (app, config) => {
     app.use((req, res, next) => {
         var err = new Error('Not Found');
         err.status = 404;
-        res.render('404', {
+        res.send({
 			message : '您访问的页面不存在',
 			error   : err,
-			title   : '404'
+			errcode   : 404
         });
     })
 
     app.use((err, req, res, next) => {
         res.status(err.status || 500);
-        res.render('error', {
+        res.send({
             message: err.message,
             error  : {},
-            title  : 'error'
+            errcode  : 500
         });
         
     })
