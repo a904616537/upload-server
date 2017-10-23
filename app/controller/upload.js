@@ -56,6 +56,9 @@ router.route('/upload')
             case 'video/mp4':
                 extName = 'mp4';
                 break;
+            case 'video/x-m4v': 
+                extName = 'm4v';
+                break;
         }
         if (extName.length === 0) {
             res.send({
