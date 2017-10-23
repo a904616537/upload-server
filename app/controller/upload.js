@@ -35,9 +35,11 @@ router.route('/upload')
             res.send(err);
             return;
         }
-        console.log('files', files['file[0]']);
+        
         let file = files.file? files.file : files['file[0]'];
         var extName = ''; //后缀名
+        console.log('file', file);
+        console.log('filetype', file.type);
         switch (file.type) {
             case 'image/pjpeg':
                 extName = 'jpg';
