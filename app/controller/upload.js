@@ -116,7 +116,6 @@ router.route('/upload')
         console.log('files', files)
         let file = files.file? files.file : files['file[0]'];
         var extName = ''; //后缀名
-        console.log('file', file);
         console.log('filetype', file.type);
         switch (file.type) {
             case 'image/pjpeg':
@@ -141,6 +140,7 @@ router.route('/upload')
                 extName = 'pdf';
                 break;
         }
+        console.log('extName', extName)
         if (extName.length === 0) {
             res.send({
 				code : 202,
@@ -152,6 +152,7 @@ router.route('/upload')
 			var newPath    = form.uploadDir + avatarName;
 			displayUrl     = config.app.host + avatarName;
 			
+            console.log('displayUrl', displayUrl)
             fs.renameSync(file.path, newPath); //重命名
             res.send({
 				code : 200,
