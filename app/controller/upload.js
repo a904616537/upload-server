@@ -137,6 +137,9 @@ router.route('/upload')
             case 'video/x-m4v': 
                 extName = 'm4v';
                 break;
+            case 'application/pdf' :
+                extName = 'pdf';
+                break;
         }
         if (extName.length === 0) {
             res.send({

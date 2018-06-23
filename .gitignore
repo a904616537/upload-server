@@ -34,4 +34,4 @@ bower_components
 .pm2
 
 # modified by jack
-public
+public/*
