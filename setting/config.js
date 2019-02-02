@@ -12,7 +12,7 @@ const config = {
 		port         : 8082,
 		app          : {
 			name : 'company',
-			host : 'http://image.mybarrefitness.com/images/'
+			host : 'http://img.sportgochina.com/images/'
 		}
 	},
 	test: {
@@ -20,7 +20,7 @@ const config = {
 		port         : 8082,
 		app          : {
 			name : 'company',
-			host : 'http://image.mybarrefitness.com/images/'
+			host : 'http://img.sportgochina.com/images/'
 		}
 	},
 	// 线上产品配置
@@ -29,7 +29,7 @@ const config = {
 		port         : 8082,
 		app          : {
 			name : 'company',
-			host : 'http://image.mybarrefitness.com/images/'
+			host : 'http://img.sportgochina.com/images/'
 		},
 	}
 }
