@@ -13,7 +13,8 @@ zlib           = require('zlib');
 module.exports = (app, config) => {
 
     app.all('*',function (req, res, next) {
-        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.setHeader('Access-Control-Allow-Origin', 'http://admin.sportgochina.com');
+        res.setHeader('Access-Control-Allow-Credentials', 'true');
         res.setHeader('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
         res.setHeader("Access-Control-Allow-Headers", "Cache-Control,Origin,X-Requested-With,Content-Type,Accept,Authorization,Referer");
         if (req.method == 'OPTIONS') {

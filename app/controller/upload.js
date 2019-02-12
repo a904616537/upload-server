@@ -104,7 +104,7 @@ router.route('/upload')
 	form.encoding       = 'utf-8'; 			//设置编辑
 	form.uploadDir      = userDirPath;		//设置上传目录
 	form.keepExtensions = true; 			//保留后缀
-	form.maxFieldsSize  = 2 * 1024 * 1024; 	//文件大小
+	form.maxFieldsSize  = 2 * 1024 * 1024 * 1024; 	//文件大小
 	form.type           = true;
 
     var displayUrl;
